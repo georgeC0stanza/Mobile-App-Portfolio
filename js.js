@@ -1,3 +1,58 @@
+var winner = "Michael";
+
+function display(winner){
+  document.getElementById("display").innerHTML = 
+  `
+  hello there ${winner}
+  
+  
+  
+  
+  
+  `;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var phoneValidation = false;
 var ccnValidation = false;
 var expValidation = false;
