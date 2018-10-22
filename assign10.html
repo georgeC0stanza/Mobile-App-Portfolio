@@ -1,0 +1,117 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CS 213 Week 05 </title>
+    <script type="text/javascript" src="213.05.PonderProblem.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+  
+  </head>
+  
+<body>
+    <header>
+        <div class="header">
+          <h1>Assignment 10</h1>
+          <div class="headerSmall">
+          </div>
+        </div> 
+    </header>
+    <br/>
+
+
+    <form action = "assign10.php" id = "week05" method="GET" onsubmit="return validateForm()">
+      <div class="whole">
+          <h1> Buy Some Things</h1>
+      <div class="section">
+  
+
+        <p>First Name</p>
+        <input name = "name_first" required type="text">
+        <br/>
+
+        <p>Last Name</p>
+        <input name = "name_last" required type="text">
+        <br/>
+      
+        <p>Address</p>
+        <textarea name="address" required rows="2" placeholder="street address, city, state, zip"></textarea>
+        <br/>
+      
+        <p>Phone</p>
+        <input name="phone" required type="text" placeholder="XXX-XXX-XXXX" oninput="validate_phone(this.value, 'phone_validation')"/>
+        <p name="phone_validation" style='color:red;'></p>
+        <br>
+      </div>
+      <div class="section">
+        <h3>Checkout</h3>
+        <table>
+          <tr>
+            <th>Purchase</th>
+            <th>Item</th>
+            <th>Cost</th>
+          </tr>
+          <tr>
+            <td><input name="purchase[]" id="bananas" type="checkbox" oninput="calculate_cost()" onchange="calculate_cost()" value="Bananas - $6.00"></td>
+            <td>Bananas</td>
+            <td>$6.00</td>
+          </tr>
+          <tr>
+            <td><input name="purchase[]" id = "chocolate" type="checkbox" oninput="calculate_cost()" onchange="calculate_cost()" value="Chocolate - $2.00"></td>
+            <td>Chocolate</td>
+            <td>$2.00</td>
+          </tr>
+          <tr>
+            <td><input name="purchase[]" id = "water" type="checkbox" oninput="calculate_cost()" onchange="calculate_cost()" value="Water - $1.00"></td>
+            <td>Water</td>
+            <td>$1.00</td>
+          </tr>
+          <tr>
+            <td><input name="purchase[]" id ="bread" type="checkbox" oninput="calculate_cost()" onchange="calculate_cost()" value="Bread - $2.00"></td>
+            <td>Bread</td>
+            <td>$2.00</td>
+          </tr>
+          <tr>
+            <td><input name="purchase[]" id ="apples" type="checkbox" oninput="calculate_cost()" onchange="calculate_cost()" value="Apples - $5.00"></td>
+            <td>Apples</td>
+            <td>$5.00</td>
+          </tr>   
+        </table>
+
+      <p>Total Cost</p>
+      <input name ="costTotal" type = "text" size="4" value = "" readonly>
+      <span>$</span>
+      <br/>
+      </div>
+
+      <div class="section">
+        <h3>Payment</h3>
+        
+        <p>Credit Card Number</p>
+        <input type="radio" name="credit_card" value="Mastercard">MasterCard<br>
+        <input type="radio" name="credit_card" value="Visa">Visa<br>
+        <input type="radio" name="credit_card" value="American Express">American Express<br>
+        
+        <p>Credit Card Number</p>
+        <input name="ccn" required type="text" oninput="validate_ccn(this.value, 'ccn_validation');" onchange="validate_ccn(this.value, 'ccn_validation');"/>
+        <p name="ccn_validation" style='color:red;'></p>
+
+        <p>Credit Card Expiration</p>
+        <input name="exp" required type="text" oninput="validate_exp(this.value, 'exp_validation');" onchange="validate_exp(this.value, 'exp_validation');"/>
+        <p name="exp_validation" style='color:red;'></p>
+      </div>
+      <div class="section">
+        <input type="reset" class="button"/>
+        <input type="submit" class="button" value="Submit">
+      </div>
+    </div>
+    </form>
+
+    <footer>
+      <div class="footer">
+          <a href="../../index.html" style = "color:purple;">CS 213 Assignments</a>  
+          <p>David Harris</p>
+          <p>CS 213</p>
+      </div> 
+    </footer>
+  </body>
+</html>
