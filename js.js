@@ -48,7 +48,7 @@ function onstart(){
   let userList = [0];
   userList.pop();
 
-}
+} 
 
 function addNewPlayer(){
   let newUser = new User(document.getElementById('player_name').value);
