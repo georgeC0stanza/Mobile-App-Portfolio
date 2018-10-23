@@ -11,28 +11,26 @@
 <body>
     <header>
         <div class="header">
-          <h1 id = "display">my app</h1>
+          <h1>my app</h1>
           <div class="headerSmall">
           </div>
         </div> 
     </header>
     <br/>
 
- 
-    <form action = "assign10.php" id = "week05" method="GET" onsubmit="return validateForm()">
-      <div class="whole">
-          <h1> Buy Some Things</h1>
-      <div class="section">
-  
-
-        <p>First Name</p>
-        <input name = "name_first" required type="text">
+    <form id = "New Player" onsubmit="return addNewPlayer()">
+        <h3> New Player </h3>
+        <p>Player Name</p>
+        <input name = "player_name" id = "player_name" required type="text">
         <br/>
+        <input type="reset" class="button"/>
+        <input type="submit" class="button" value="Submit"/>
+    </form>
 
-        <p>Last Name</p>
-        <input name = "name_last" required type="text">
-        <br/>
-      
+
+        <div class="whole">
+                <h1> Battle Time</h1>
+            <div class="section">  
         <p>Address</p>
         <textarea name="address" required rows="2" placeholder="street address, city, state, zip"></textarea>
         <br/>

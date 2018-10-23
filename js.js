@@ -1,3 +1,72 @@
+
+
+class User {
+  constructor(name) {
+    this.name = name;
+    this.decks = ["0"]; // we need to convince javascript that this is an array
+    this.decks.pop();   // but we need the array to be empty 
+    this.winRatio = 0;
+  }
+
+  addDeck(name, version) {
+    let deck = [name, version];
+    this.decks.push(deck);
+  }
+
+  
+  listDecks() {
+    console.log(this.decks.toString());
+    console.log("help");
+  }
+
+}
+
+class GamesList {
+  constructor() {
+    this.games = ["0"];
+    this.games.pop();
+    this.counter = 0;
+  }
+
+  newGame(player1, player2, deck1, deck2, result){
+    let game = [player1, player2, deck1, deck2, result];
+     this.games.push(game);
+  }
+  listGames(){
+    console.log(this.games.toString());
+  }
+ 
+}
+
+
+
+function onstart(){
+
+  // we will eventually save this information 
+  // and retrieve it to fill in these two variables
+  let gamesList = new GamesList();
+  let userList = [0];
+  userList.pop();
+
+}
+
+function addNewPlayer(){
+  let newUser = new User(document.getElementById('player_name').value);
+  userList.push(newUser);
+}
+
+function addNewDeck(playerName, newDeck){
+  userList[playerName].decks.push(newDeck);
+}
+
+function addNewBattle(player1, player2, deck1, deck2, result){
+  gamesList.newGame(player1, player2, deck1, deck2, result);
+}
+
+function updateDeckVersion(){
+
+}
+
 var winner = "Michael";
 
 function display(winner){
@@ -5,52 +74,28 @@ function display(winner){
   `
   hello there ${winner}
   
-  
-  
-  
-  
   `;
 }
 
 
+//testings
+/*
+function addUser(name) {
+  let newUser = new User(name);
+  newUser.addDeck("deckName", "version 3");
+  
+  newUser.listDecks();
 
+  console.log ("success!")
+}
 
+function addGame(game) {
+  
+  gamesList.newGame("jack", "danielle", "sudo", "cleanser", "1");
+  gamesList.listGames();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 var phoneValidation = false;
