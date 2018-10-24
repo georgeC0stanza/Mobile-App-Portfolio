@@ -1,3 +1,21 @@
+/* deprecated
+class GamesList {
+  constructor() {
+    this.games = ["0"];
+    this.games.pop();
+    this.counter = 0;
+  }
+
+  newGame(player1, player2, deck1, deck2, result){
+    let game = [player1, player2, deck1, deck2, result];
+     this.games.push(game);
+  }
+  listGames(){
+    console.log(this.games.toString());
+  }
+ 
+}
+*/
 
 
 class User {
@@ -16,51 +34,47 @@ class User {
   
   listDecks() {
     console.log(this.decks.toString());
-    console.log("help");
+
   }
 
 }
 
-class GamesList {
-  constructor() {
-    this.games = ["0"];
-    this.games.pop();
-    this.counter = 0;
-  }
 
-  newGame(player1, player2, deck1, deck2, result){
-    let game = [player1, player2, deck1, deck2, result];
-     this.games.push(game);
-  }
-  listGames(){
-    console.log(this.games.toString());
-  }
- 
-}
-
-
-
-function onstart(){
+//function onstart(){
 
   // we will eventually save this information 
   // and retrieve it to fill in these two variables
-  let gamesList = new GamesList();
+  let gamesList = [0];
+  gamesList.pop();
   let userList = [0];
   userList.pop();
 
-} 
+//} 
 
 function addNewPlayer(){
   let newUser = new User(document.getElementById('player_name').value);
-  userList.push(newUser);
+  userList.push(newUser); 
+  console.log(userList);
+  return false;
 }
 
-function addNewDeck(playerName, newDeck){
-  userList[playerName].decks.push(newDeck);
+function addNewDeck(){
+  console.log(userList);
+  let playerName = document.getElementById('player_name2').value;
+  let newDeck = document.getElementById('deck_name').value;
+  console.log(userList);
+  let userListIndex = userList.findIndex(name => name === "sam"); // playerName);
+  console.log(userListIndex);
+  console.log(userList);
+ // userList[userListIndex].decks.push(newDeck);
+  console.log(userList);
+  return false;
 }
+
 
 function addNewBattle(player1, player2, deck1, deck2, result){
-  gamesList.newGame(player1, player2, deck1, deck2, result);
+  let game = [player1, player2, deck1, deck2, result];
+  gamesList.push(game);
 }
 
 function updateDeckVersion(){
