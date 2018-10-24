@@ -1,22 +1,3 @@
-/* deprecated
-class GamesList {
-  constructor() {
-    this.games = ["0"];
-    this.games.pop();
-    this.counter = 0;
-  }
-
-  newGame(player1, player2, deck1, deck2, result){
-    let game = [player1, player2, deck1, deck2, result];
-     this.games.push(game);
-  }
-  listGames(){
-    console.log(this.games.toString());
-  }
- 
-}
-*/
-
 
 class User {
   constructor(name) {
@@ -30,31 +11,12 @@ class User {
     let deck = [name, version];
     this.decks.push(deck);
   }
-
   
   listDecks() {
     console.log(this.decks.toString());
-
   }
-
 }
-//8**************************************************************************
-  // Retrieve your data from locaStorage
-  var saveData = JSON.parse(localStorage.saveData || null) || {};
 
-  // Store your data.
-  function saveStuff(obj) {
-    saveData.obj = obj;
-    // saveData.foo = foo;
-    saveData.time = new Date().getTime();
-    localStorage.saveData = JSON.stringify(saveData);
-  }
-
-  // Do something with your data.
-  function loadStuff() {
-    return saveData.obj || "default";
-  }
-//8*******************************************************************************
 
 
 //function onstart(){
@@ -62,16 +24,21 @@ class User {
   let gamesList = [0];
   gamesList.pop();
   if (localStorage.hasOwnProperty("gamesList")){
-    if (localStorage.getItem("gamesList"))
+    if (localStorage.getItem("gamesList")){
+      console.log(localStorage.getItem("gamesList"));
       gamesList = JSON.parse(localStorage.getItem("gamesList"));
+      console.log(localStorage.getItem("gamesList"));
+    }
   }
 
   let userList = [0];
   userList.pop();
   if (localStorage.hasOwnProperty("userList")){
     if (localStorage.getItem("userList"))
+    {
       console.log(localStorage.getItem("userList"));
-    userList = JSON.parse(localStorage.getItem("userList"));
+      userList = JSON.parse(localStorage.getItem("userList"));
+    }
   }
   
 console.log(userList);
@@ -120,12 +87,15 @@ function addNewBattle(){
 
   let game = [player1, player2, deck1, deck2, result];
   gamesList.push(game);
+  return false;
 }
 
 function updateDeckVersion(){
 
 }
 
+
+/* tests
 var winner = "Michael";
 
 function display(winner){
@@ -135,7 +105,7 @@ function display(winner){
   
   `;
 }
-
+*/
 
 //testings
 /*
