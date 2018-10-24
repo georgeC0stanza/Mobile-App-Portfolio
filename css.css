@@ -1,7 +1,7 @@
 body { 
     margin: 0;
     font-family: Arial;
-    background: purple repeating-radial-gradient(rgb(174, 87, 174), black 20px, rgb(174, 87, 174) 40px);
+    background: purple repeating-radial-gradient(rgb(72, 190, 151), black 20px, rgb(174, 87, 174) 40px);
 }
 
 h2 {
@@ -59,7 +59,7 @@ img {
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: rgb(76, 163, 175); /* Green */
     color: white;
     padding: 15px 32px;
     text-align: center;

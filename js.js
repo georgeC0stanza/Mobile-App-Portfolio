@@ -38,18 +38,51 @@ class User {
   }
 
 }
+//8**************************************************************************
+  // Retrieve your data from locaStorage
+  var saveData = JSON.parse(localStorage.saveData || null) || {};
+
+  // Store your data.
+  function saveStuff(obj) {
+    saveData.obj = obj;
+    // saveData.foo = foo;
+    saveData.time = new Date().getTime();
+    localStorage.saveData = JSON.stringify(saveData);
+  }
+
+  // Do something with your data.
+  function loadStuff() {
+    return saveData.obj || "default";
+  }
+//8*******************************************************************************
 
 
 //function onstart(){
 
-  // we will eventually save this information 
-  // and retrieve it to fill in these two variables
   let gamesList = [0];
   gamesList.pop();
+  if (localStorage.hasOwnProperty("gamesList")){
+    if (localStorage.getItem("gamesList"))
+      gamesList = JSON.parse(localStorage.getItem("gamesList"));
+  }
+
   let userList = [0];
   userList.pop();
+  if (localStorage.hasOwnProperty("userList")){
+    if (localStorage.getItem("userList"))
+      console.log(localStorage.getItem("userList"));
+    userList = JSON.parse(localStorage.getItem("userList"));
+  }
+  
+console.log(userList);
+console.log(gamesList);
 
 //} 
+
+function save(){
+  localStorage.setItem("gamesList", JSON.stringify(gamesList));
+  localStorage.setItem("userList", JSON.stringify(userList));
+}
 
 function addNewPlayer(){
   let newUser = new User(document.getElementById('player_name').value);
@@ -58,6 +91,7 @@ function addNewPlayer(){
   return false;
 }
 
+/* need some fixing done */
 function addNewDeck(){
   console.log(userList);
   let playerName = document.getElementById('player_name2').value;
@@ -72,7 +106,18 @@ function addNewDeck(){
 }
 
 
-function addNewBattle(player1, player2, deck1, deck2, result){
+function addNewBattle(){
+  let player1 = document.getElementById('player_1').value;
+  let player2 = document.getElementById('player_2').value; 
+  let deck1 = document.getElementById('deck_1').value;
+  let deck2 = document.getElementById('deck_2').value;  
+  let result;
+  if (document.getElementById('player_1').checked) {
+    result = document.getElementById('player_1').value;
+  } else {
+    result = document.getElementById('player_2').value;
+  }
+
   let game = [player1, player2, deck1, deck2, result];
   gamesList.push(game);
 }
