@@ -18,6 +18,9 @@
     </header>
     <br/>
 
+    <button onclick="save()">Save</button>
+    <br/>
+
     <form id = "New Player" onsubmit="return addNewPlayer()">
       <h3>Add New Player </h3>
       <p>Player Name</p>
@@ -28,6 +31,7 @@
       <input type="submit" class="button" value="Submit"/>
     </form>
     <br/> 
+
     <form id = "New Deck" onsubmit="return addNewDeck()">
       <h3>Add New Deck </h3>
       <p>Player Name</p>
@@ -40,8 +44,10 @@
       <input type="submit" class="button" value="Submit"/>
     </form>
     <br/> 
-    <form id = "New Deck" onsubmit="return addNewBattle()">
+
+    <form id = "New Battle" onsubmit="return addNewBattle()">
       <h3>Add New Battle </h3>
+
       <p>Player 1</p>
       <input name = "player_1" id = "player_1" required type="text">
       <p>Deck 1</p>
@@ -67,6 +73,10 @@
       <input type="submit" class="button" value="Submit"/>
     </form>
 
-    <button onclick="save()">Save</button>
+    <div id="display">
+        <button onclick="updateDisplay()">Update</button>
+    </div>
+
+
   </body>
 </html>

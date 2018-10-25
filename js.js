@@ -42,6 +42,7 @@ class User {
   }
   
 console.log(userList);
+console.log("gamesList:");
 console.log(gamesList);
 
 //} 
@@ -58,20 +59,18 @@ function addNewPlayer(){
   return false;
 }
 
-/* need some fixing done */
 function addNewDeck(){
   console.log(userList);
   let playerName = document.getElementById('player_name2').value;
   let newDeck = document.getElementById('deck_name').value;
   console.log(userList);
-  let userListIndex = userList.findIndex(name => name === "sam"); // playerName);
+  let userListIndex = userList.findIndex(user => user.name === playerName);
   console.log(userListIndex);
   console.log(userList);
- // userList[userListIndex].decks.push(newDeck);
+  userList[userListIndex].decks.push(newDeck);
   console.log(userList);
   return false;
 }
-
 
 function addNewBattle(){
   let player1 = document.getElementById('player_1').value;
@@ -94,6 +93,41 @@ function updateDeckVersion(){
 
 }
 
+function updateDisplay(){
+
+  console.log(gamesList);
+  let list = "<table border = '1'><tr><th>Name</th><th>Address</th><th>Major</th><th>GPA</th></tr>\n";
+
+  for (game of gamesList) {
+    for (item of game) {
+      list += "<tr><td>" +
+    }
+  }
+
+  for (let i = 0; i < gamesList.length; i++){
+    for (let j = 0; j < gamesList[i].length; j++){
+      list  = list + "<tr><td>" + gamesList[i].[j] + " " + myObj.students[i].last + "</td>" +
+              "<td>" + myObj.students[i].address.city + ", " + myObj.students[i].address.state + " " +
+              myObj.students[i].address.zip + "</td>" +
+              "<td>" + myObj.students[i].major + "</td>" +
+              "<td>" + myObj.students[i].gpa + "</td></tr>\n";
+    }
+  }
+  document.getElementById("json2").innerHTML = list;
+
+  // from another thing:
+  var myObj = JSON.parse(this.responseText);
+  var list = "<table border = '1'><tr><th>Name</th><th>Address</th><th>Major</th><th>GPA</th></tr>\n";
+
+  for (var i = 0; i < myObj.students.length; i++){
+      list  = list + "<tr><td>" + myObj.students[i].first + " " + myObj.students[i].last + "</td>" +
+              "<td>" + myObj.students[i].address.city + ", " + myObj.students[i].address.state + " " +
+              myObj.students[i].address.zip + "</td>" +
+              "<td>" + myObj.students[i].major + "</td>" +
+              "<td>" + myObj.students[i].gpa + "</td></tr>\n";
+  }
+  document.getElementById("json2").innerHTML = list;
+}
 
 /* tests
 var winner = "Michael";
