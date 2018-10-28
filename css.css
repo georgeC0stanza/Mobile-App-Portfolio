@@ -7,14 +7,6 @@
     border: none;
 }
 
-
-html *
-{
-   font-size: 1.2em !important;
-
-   font-family: Arial !important;
-}
-
 body { 
     margin: 0;
     font-family: Arial;
