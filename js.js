@@ -25,9 +25,7 @@ class User {
   gamesList.pop();
   if (localStorage.hasOwnProperty("gamesList")){
     if (localStorage.getItem("gamesList")){
-      console.log(localStorage.getItem("gamesList"));
       gamesList = JSON.parse(localStorage.getItem("gamesList"));
-      console.log(localStorage.getItem("gamesList"));
     }
   }
 
@@ -36,7 +34,6 @@ class User {
   if (localStorage.hasOwnProperty("userList")){
     if (localStorage.getItem("userList"))
     {
-      console.log(localStorage.getItem("userList"));
       userList = JSON.parse(localStorage.getItem("userList"));
     }
   }
@@ -124,7 +121,6 @@ function updateDisplay2(){
       list += "<td>" + item + "</td>";
     }
   }
-  console.log(list);
   document.getElementById('resultsTable').innerHTML = list;
 
 
