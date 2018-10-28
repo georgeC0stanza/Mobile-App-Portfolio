@@ -40,10 +40,7 @@ class User {
       userList = JSON.parse(localStorage.getItem("userList"));
     }
   }
-  
-console.log(userList);
-console.log("gamesList:");
-console.log(gamesList);
+
 
 //} 
 
@@ -55,20 +52,19 @@ function save(){
 function addNewPlayer(){
   let newUser = new User(document.getElementById('player_name').value);
   userList.push(newUser); 
-  console.log(userList);
+
   document.getElementById('message').innerHTML = `<p style="color:green;">Successful entry!</p>`;
   save();
   return false;
 }
 
 function addNewDeck(){
-  console.log("hello");
+
   let playerName = document.getElementById('player_name2').value;
   let newDeck = document.getElementById('deck_name').value;
-  console.log(userList);
+
   let userListIndex = userList.findIndex(user => user.name === playerName);
-  console.log(userListIndex);
-  console.log(userList);
+
   if (userListIndex == -1){
     document.getElementById('message').innerHTML = `<p style="color:red;">Sorry we do not have that player registered.</p?`;
   }
@@ -76,7 +72,7 @@ function addNewDeck(){
     userList[userListIndex].decks.push(newDeck);
     document.getElementById('message').innerHTML = `<p style="color:green;">Successful entry!</p>`;
   }
-  console.log(userList);
+
   save();
   return false;
 }
@@ -131,62 +127,8 @@ function updateDisplay2(){
   console.log(list);
   document.getElementById('resultsTable').innerHTML = list;
 
-/*
-  for (let i = 0; i < gamesList.length; i++){
-    for (let j = 0; j < gamesList[i].length; j++){
-      list  = list + "<tr><td>" + gamesList[i].[j] + " " + myObj.students[i].last + "</td>" +
-              "<td>" + myObj.students[i].address.city + ", " + myObj.students[i].address.state + " " +
-              myObj.students[i].address.zip + "</td>" +
-              "<td>" + myObj.students[i].major + "</td>" +
-              "<td>" + myObj.students[i].gpa + "</td></tr>\n";
-    }
-  }
-  document.getElementById("json2").innerHTML = list;
 
-  // from another thing:
-  var myObj = JSON.parse(this.responseText);
-  var list = "<table border = '1'><tr><th>Name</th><th>Address</th><th>Major</th><th>GPA</th></tr>\n";
-
-  for (var i = 0; i < myObj.students.length; i++){
-      list  = list + "<tr><td>" + myObj.students[i].first + " " + myObj.students[i].last + "</td>" +
-              "<td>" + myObj.students[i].address.city + ", " + myObj.students[i].address.state + " " +
-              myObj.students[i].address.zip + "</td>" +
-              "<td>" + myObj.students[i].major + "</td>" +
-              "<td>" + myObj.students[i].gpa + "</td></tr>\n";
-  }
-  document.getElementById("json2").innerHTML = list;
-
-  */
 }
 
-/* tests
-var winner = "Michael";
 
-function display(winner){
-  document.getElementById("display").innerHTML = 
-  `
-  hello there ${winner}
-  
-  `;
-}
-*/
-
-//testings
-/*
-function addUser(name) {
-  let newUser = new User(name);
-  newUser.addDeck("deckName", "version 3");
-  
-  newUser.listDecks();
-
-  console.log ("success!")
-}
-
-function addGame(game) {
-  
-  gamesList.newGame("jack", "danielle", "sudo", "cleanser", "1");
-  gamesList.listGames();
-}
-
-*/
 
