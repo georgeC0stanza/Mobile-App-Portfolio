@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>battle time </title>
+    <script type="text/javascript" src="js.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+  
+  </head>
+  
+<body>
+    <header>
+        <div class="header">
+          <h1>BATTLE TIME</h1>
+          <div class="headerSmall">
+          </div>
+        </div> 
+    </header>
+    <br/>
+    <br/>
+
+    <form id = "New Player" onsubmit="return addNewPlayer()">
+      <h3>Add New Player </h3>
+      <p>Player Name</p>
+      <input name = "player_name" id = "player_name" required type="text">
+      <br/>
+      <br/> 
+      <span id = "message"></span>
+      <input type="reset" class="button"/>
+      <input type="submit" class="button" value="Submit"/>
+    </form>
+    <br/> 
+
+
+  </body>
+</html>

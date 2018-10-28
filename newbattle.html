@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>battle time </title>
+    <script type="text/javascript" src="js.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+  
+  </head>
+  
+<body>
+    <header>
+        <div class="header">
+          <h1>BATTLE TIME</h1>
+          <div class="headerSmall">
+          </div>
+        </div> 
+    </header>
+    <br/>
+
+    <br/>
+
+  
+
+    <form id = "New Battle" onsubmit="return addNewBattle()">
+      <h3>Record New Battle </h3>
+
+      <p>Player 1</p>
+      <input name = "player_1" id = "player_1" required type="text">
+      <p>Deck 1</p>
+      <input name = "deck_1" id = "deck_1" required type="text">
+      <br/> 
+      <p>Player 2</p>
+      <input name = "player_2" id = "player_2" required type="text">
+      <p>Deck 2</p>
+      <input name = "deck_2" id = "deck_2" required type="text">
+      <br/> 
+      <p>Who Won The Game?</p>
+        <input type="radio" name="winner" id="player_1" value="player_1">Player 1<br>
+        <input type="radio" name="winner" id="player_2" value="player_2">Player 2<br>
+      <br/> 
+      <input name="firstTurnWin[]" id="firstTurnWin" type="checkbox" value="true">
+      <span>Was it a first turn win?</span>
+      <br/> 
+      <input name="turnAfterWin[]" id="turnAfterWin" type="checkbox" value="true">
+      <span>Would the losing party have won next turn?</span>
+      <br/> 
+      <br/> 
+      <span id = "message"></span>
+      <input type="reset" class="button"/>
+      <input type="submit" class="button" value="Submit"/>
+    </form>
+
+  </body>
+</html>

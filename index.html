@@ -17,65 +17,30 @@
         </div> 
     </header>
     <br/>
-
-    <button onclick="save()">Save</button>
     <br/>
 
-    <form id = "New Player" onsubmit="return addNewPlayer()">
-      <h3>Add New Player </h3>
-      <p>Player Name</p>
-      <input name = "player_name" id = "player_name" required type="text">
+    <span id = "resultsTable"></span>
+
+    <form id = "addThings">
+      <h3>Welcom to the batle station! What would you like to do?</h3>
       <br/>
-      <br/> 
-      <input type="reset" class="button"/>
-      <input type="submit" class="button" value="Submit"/>
+
+      <input type="submit" formaction= "newdeck.html" value="Add A New Deck" class="button">
+      <input type="submit" formaction = "newplayer.html" value="Add A New Player" class="button">
+      <input type="submit" formaction = "newbattle.html" value="Record A New Battle" class="button">
+      <input type="submit" formaction = "display.html" value="Display Battle Results" class="button">
+      <br/>
+      <br/>    
+
     </form>
     <br/> 
 
-    <form id = "New Deck" onsubmit="return addNewDeck()">
-      <h3>Add New Deck </h3>
-      <p>Player Name</p>
-      <input name = "player_name2" id = "player_name2" required type="text">
-      <p>Deck Name</p>
-      <input name = "deck_name" id = "deck_name" required type="text">
-      <br/> 
-      <br/> 
-      <input type="reset" class="button"/>
-      <input type="submit" class="button" value="Submit"/>
-    </form>
-    <br/> 
 
-    <form id = "New Battle" onsubmit="return addNewBattle()">
-      <h3>Add New Battle </h3>
-
-      <p>Player 1</p>
-      <input name = "player_1" id = "player_1" required type="text">
-      <p>Deck 1</p>
-      <input name = "deck_1" id = "deck_1" required type="text">
-      <br/> 
-      <p>Player 2</p>
-      <input name = "player_2" id = "player_2" required type="text">
-      <p>Deck 2</p>
-      <input name = "deck_2" id = "deck_2" required type="text">
-      <br/> 
-      <p>Who Won The Game?</p>
-        <input type="radio" name="winner" id="player_1" value="player_1">Player 1<br>
-        <input type="radio" name="winner" id="player_2" value="player_2">Player 2<br>
-      <br/> 
-      <input name="firstTurnWin[]" id="firstTurnWin" type="checkbox" value="true">
-      <span>Was it a first turn win?</span>
-      <br/> 
-      <input name="turnAfterWin[]" id="turnAfterWin" type="checkbox" value="true">
-      <span>Would the losing party have won next turn?</span>
-      <br/> 
-      <br/> 
-      <input type="reset" class="button"/>
-      <input type="submit" class="button" value="Submit"/>
-    </form>
 
     <div id="display">
         <button onclick="updateDisplay()">Update</button>
     </div>
+
 
 
   </body>

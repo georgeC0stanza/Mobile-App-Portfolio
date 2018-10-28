@@ -56,19 +56,28 @@ function addNewPlayer(){
   let newUser = new User(document.getElementById('player_name').value);
   userList.push(newUser); 
   console.log(userList);
+  document.getElementById('message').innerHTML = `<p style="color:green;">Successful entry!</p>`;
+  save();
   return false;
 }
 
 function addNewDeck(){
-  console.log(userList);
+  console.log("hello");
   let playerName = document.getElementById('player_name2').value;
   let newDeck = document.getElementById('deck_name').value;
   console.log(userList);
   let userListIndex = userList.findIndex(user => user.name === playerName);
   console.log(userListIndex);
   console.log(userList);
-  userList[userListIndex].decks.push(newDeck);
+  if (userListIndex == -1){
+    document.getElementById('message').innerHTML = `<p style="color:red;">Sorry we do not have that player registered.</p?`;
+  }
+  else {
+    userList[userListIndex].decks.push(newDeck);
+    document.getElementById('message').innerHTML = `<p style="color:green;">Successful entry!</p>`;
+  }
   console.log(userList);
+  save();
   return false;
 }
 
@@ -86,24 +95,43 @@ function addNewBattle(){
 
   let game = [player1, player2, deck1, deck2, result];
   gamesList.push(game);
+  document.getElementById('message').innerHTML = `<p style="color:green;">Successful entry!</p>`;
+  save();
   return false;
 }
 
 function updateDeckVersion(){
 
+  save();
 }
 
 function updateDisplay(){
-
-  console.log(gamesList);
-  let list = "<table border = '1'><tr><th>Name</th><th>Address</th><th>Major</th><th>GPA</th></tr>\n";
+  let list = "<table border = '1'><tr><th>Player 1</th><th>Deck</th><th>Player 2</th><th>Deck</th><th>Victor</th></tr>\n";
 
   for (game of gamesList) {
+    list += "<tr>";
     for (item of game) {
-      list += "<tr><td>" +
+      list += "<td>" + item + "</td>";
     }
   }
+  document.getElementById('resultsTable').innerHTML = list;
+}
 
+function updateDisplay2(){
+
+  console.log(gamesList);
+  let list = "<h2>Player 1</h2><br/><table border = '1'><tr><th>Player 1</th><th>Deck</th><th>Player 2</th><th>Deck</th><th>Victor</th></tr>\n";
+
+  for (game of gamesList) {
+    list += "<tr>";
+    for (item of game) {
+      list += "<td>" + item + "</td>";
+    }
+  }
+  console.log(list);
+  document.getElementById('resultsTable').innerHTML = list;
+
+/*
   for (let i = 0; i < gamesList.length; i++){
     for (let j = 0; j < gamesList[i].length; j++){
       list  = list + "<tr><td>" + gamesList[i].[j] + " " + myObj.students[i].last + "</td>" +
@@ -127,6 +155,8 @@ function updateDisplay(){
               "<td>" + myObj.students[i].gpa + "</td></tr>\n";
   }
   document.getElementById("json2").innerHTML = list;
+
+  */
 }
 
 /* tests
