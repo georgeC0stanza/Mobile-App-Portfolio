@@ -17,8 +17,6 @@ class User {
   }
 }
 
-
-
 //function onstart(){
 
   let gamesList = [0];
@@ -37,7 +35,6 @@ class User {
       userList = JSON.parse(localStorage.getItem("userList"));
     }
   }
-
 
 //} 
 
@@ -127,4 +124,38 @@ function updateDisplay2(){
 }
 
 
+function getFragment(htmlFragment) {
+  fetch(htmlFragment)
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(htmlFragment) {
+    document.getElementById('fragmentSpace').innerHTML = htmlFragment;
+  });
+}
 
+function newplayer() {
+  var htmlFragment = "newplayer.html";
+  getFragment(htmlFragment);
+}
+
+function newbattle() {
+  var htmlFragment = "newbattle.html";
+  getFragment(htmlFragment);
+}
+
+function newdeck() {
+  var htmlFragment = "newdeck.html";
+  getFragment(htmlFragment);
+}
+
+function display() {
+  var htmlFragment = "display.html";
+  fetch(htmlFragment)
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(htmlFragment) {
+    document.getElementById('resultsTable').innerHTML = htmlFragment;
+  });
+}
