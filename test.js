@@ -26,16 +26,6 @@ function get(htmlFragment) {
     return fetch(htmlFragment).then(response => {return response.text();}).catch(err => {console.log("error", err);});
 }
 
-//console.log(get());
-/*
-fetch('http://example.com/movies.json')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(myJson) {
-    console.log(JSON.stringify(myJson));
-  });
-*/
   fetch(htmlFragment)
   .then(function(response) {
     return response.text();
