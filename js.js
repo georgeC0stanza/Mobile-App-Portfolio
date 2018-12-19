@@ -1,4 +1,6 @@
 
+
+
 /******************************************************************************
  * the User class holds the data for each player's decks and win history
  */
@@ -62,10 +64,8 @@ function save(){
 }
 
 /******************************************************************************
- * "modifying" functions
- * these functions have the logic for modifying the data
+ * addNewPlayer adds a new user to the userlist
  */
-
 function addNewPlayer(){
   let newUser = new User(document.getElementById('player_name').value);
   userList.push(newUser); 
@@ -75,6 +75,9 @@ function addNewPlayer(){
   return false;
 }
 
+/******************************************************************************
+ * addNewDeck adds a new deck to a specific player
+ */
 function addNewDeck(){
 
   let playerName = document.getElementById('player_name2').value;
@@ -94,14 +97,20 @@ function addNewDeck(){
   return false;
 }
 
+/******************************************************************************
+ * setUsers will set input value to a given value
+ */
 function setUsers(userLocation, value){
   document.getElementById(userLocation).value = value;
 }
 
+/******************************************************************************
+ * loadUsaers will load the users form userlist and display them in a given location
+ */
 function loadUsers(userLocation, usersLocation){
   var dropdown = `
     <div class="dropdown-content">
-  `;/*<button class="dropbtn">Dropdown</button>*/
+  `;
 
   var numOfUsers = userList.length;
   for (var i = 0; i < numOfUsers; ++i){
@@ -112,11 +121,16 @@ function loadUsers(userLocation, usersLocation){
   document.getElementById(usersLocation).innerHTML = dropdown;
 }
 
-
+/******************************************************************************
+ * setDecks will set input value to a given value
+ */
 function setDecks(deckLocation, value){  
   document.getElementById(deckLocation).value = value;
 }
 
+/******************************************************************************
+ * loadDecks will load the users form userlist and display them in a given location
+ */
 function loadDecks(username, deckID, spanID){
   var dropdown = `
     <div class="dropdown-content">
@@ -136,6 +150,9 @@ function loadDecks(username, deckID, spanID){
   document.getElementById(spanID).innerHTML = dropdown;
 }
 
+/******************************************************************************
+ * addNewBattle will add a new battle to the gameslist
+ */
 function addNewBattle(){
   let player1 = document.getElementById('player_1').value;
   let player2 = document.getElementById('player_2').value; 
@@ -155,6 +172,9 @@ function addNewBattle(){
   return false;
 }
 
+/******************************************************************************
+ * updateDeckVersion will save the new deck version
+ */
 function updateDeckVersion(){
 
   save();
@@ -229,3 +249,5 @@ function updateDisplay2(){
 
 
 }
+
+ 
