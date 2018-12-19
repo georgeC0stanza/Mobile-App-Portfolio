@@ -21,38 +21,50 @@ class User {
 }
 /******************************************************************************
  * Initializing and setting up the data
+ *  and entry point into our code
  */
-//function onstart(){
-
+//function onStart(){
   let gamesList = [0];
   gamesList.pop();
+
+  let userList = [0];
+  userList.pop();
+
+  load()
+//} 
+
+
+/******************************************************************************
+ * File IO functions
+ * reading and writing our data to local storage
+ */
+
+function load(){
+  // load gamesList
   if (localStorage.hasOwnProperty("gamesList")){
     if (localStorage.getItem("gamesList")){
       gamesList = JSON.parse(localStorage.getItem("gamesList"));
     }
   }
 
-  let userList = [0];
-  userList.pop();
+  // load our userList
   if (localStorage.hasOwnProperty("userList")){
     if (localStorage.getItem("userList"))
     {
       userList = JSON.parse(localStorage.getItem("userList"));
     }
   }
-
-//} 
-
-
-/******************************************************************************
- * "modifying" functions
- * these functions have the logic for modifying the data
- */
+}
 
 function save(){
   localStorage.setItem("gamesList", JSON.stringify(gamesList));
   localStorage.setItem("userList", JSON.stringify(userList));
 }
+
+/******************************************************************************
+ * "modifying" functions
+ * these functions have the logic for modifying the data
+ */
 
 function addNewPlayer(){
   let newUser = new User(document.getElementById('player_name').value);
@@ -82,6 +94,48 @@ function addNewDeck(){
   return false;
 }
 
+function setUsers(userLocation, value){
+  document.getElementById(userLocation).value = value;
+}
+
+function loadUsers(userLocation, usersLocation){
+  var dropdown = `
+    <div class="dropdown-content">
+  `;/*<button class="dropbtn">Dropdown</button>*/
+
+  var numOfUsers = userList.length;
+  for (var i = 0; i < numOfUsers; ++i){
+    dropdown += `<button type="button" onclick="setUsers('${userLocation}', '${userList[i].name}')">${userList[i].name}</button>`
+  }
+  dropdown += `</div>`;
+
+  document.getElementById(usersLocation).innerHTML = dropdown;
+}
+
+
+function setDecks(deckLocation, value){  
+  document.getElementById(deckLocation).value = value;
+}
+
+function loadDecks(username, deckID, spanID){
+  var dropdown = `
+    <div class="dropdown-content">
+  `;
+
+  let numOfUsers = userList.length;
+  for (var i = 0; i < numOfUsers; ++i){
+    if (userList[i].name == document.getElementById(username).value){
+      let numOfDecks = userList[i].decks.length;
+      for (var j = 0; j < numOfDecks; ++j){
+        dropdown += `<button type="button" onclick="setDecks('${deckID}', '${userList[i].decks[j]}')">${userList[i].decks[j]}</button>`
+      }
+    }
+  }
+  dropdown += `</div>`;
+
+  document.getElementById(spanID).innerHTML = dropdown;
+}
+
 function addNewBattle(){
   let player1 = document.getElementById('player_1').value;
   let player2 = document.getElementById('player_2').value; 
@@ -95,7 +149,7 @@ function addNewBattle(){
   }
 
   let game = [player1, player2, deck1, deck2, result];
-  gamesList.push(game);
+  gamesList.unshift(game);
   document.getElementById('message').innerHTML = `<p style="color:green;">Successful entry!</p>`;
   save();
   return false;
@@ -158,12 +212,11 @@ function updateDisplay(){
       list += "<td>" + item + "</td>";
     }
   }
+  
   document.getElementById('resultsTable').innerHTML = list;
 }
 
 function updateDisplay2(){
-
-  console.log(gamesList);
   let list = "<h2>Player 1</h2><br/><table border = '1'><tr><th>Player 1</th><th>Deck</th><th>Player 2</th><th>Deck</th><th>Victor</th></tr>\n";
 
   for (game of gamesList) {

@@ -1,8 +1,17 @@
+ /* Dropdown Button  for future use*/
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
 
 body { 
     margin: 0;
     font-family: Arial;
     background: purple repeating-radial-gradient(rgb(72, 190, 151), black 20px, rgb(174, 87, 174) 40px);
+    font-size: 25px;
 }
 
 h2 {
@@ -74,13 +83,6 @@ img {
 
 }
 
-table {
-    border: 3px solid darkblue;
-    background-color: rgb(174, 87, 174);
-    border-collapse: collapse;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 td {
     text-align: center;
@@ -144,18 +146,8 @@ form, pre {
     background-color: lightGrey;
 }
 table {
-    margin-left: auto; 
-    margin-right: auto;
-    font-family:Verdana, Geneva, sans-serif; 
-    padding:6px;
-    width: 90%;
-    font-size: 12;
-    border: 1px solid rgb(0, 90, 136); 
-    border-radius: 4px;
-    background-color: lightgrey;
-}
-tr:first-child{
-    background-color: rgb(72, 190, 151);
+    border: 1px solid black; 
+    margin-left: 20px;
 }
 td {
     text-align: center;
@@ -164,3 +156,44 @@ h2 {
     border-bottom-style: solid;
 }
 
+#clean {
+    margin-left: auto; 
+    margin-right: auto;
+    font-family:Verdana, Geneva, sans-serif; 
+    padding:6px;
+    width: 90%;
+    font-size: 12;
+    border: 1px solid rgb(0, 90, 136); 
+    border-radius: 4px;
+    background-color: lightGrey;
+}
+
+
+.n-bordered{
+    border: 5px solid black;
+    border-collapse: collapse;	
+}
+
+.n-bordered{
+    border: none;
+}
+
+.n-bordered td{
+    border: 5px solid black;
+}
+
+.n-bordered tr:first-child td{
+    border-top: none;
+}
+
+.n-bordered tr:last-child td{
+    border-bottom: none;
+}
+
+.n-bordered tr td:first-child{
+    border-left: none;
+}
+
+.n-bordered tr td:last-child{
+    border-right: none;
+}

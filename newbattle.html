@@ -9,13 +9,7 @@
   </head>
   
 <body>
-    <header>
-        <div class="header">
-          <h1>BATTLE TIME</h1>
-          <div class="headerSmall">
-          </div>
-        </div> 
-    </header>
+
     <br/>
 
     <br/>
@@ -26,14 +20,18 @@
       <h3>Record New Battle </h3>
 
       <p>Player 1</p>
-      <input name = "player_1" id = "player_1" required type="text">
+      <input name = "player_1" id = "player_1" required type="text" onclick="loadUsers('player_1', 'user_1')">
+      <span id="user_1"></span>
       <p>Deck 1</p>
-      <input name = "deck_1" id = "deck_1" required type="text">
+      <input name = "deck_1" id = "deck_1" required type="text" onclick="loadDecks('player_1', 'deck_1', 'decks_1')">
+      <span id="decks_1"></span>
       <br/> 
       <p>Player 2</p>
-      <input name = "player_2" id = "player_2" required type="text">
+      <input name = "player_2" id = "player_2" required type="text" onclick="loadUsers('player_2', 'user_2')">
+      <span id="user_2"></span>
       <p>Deck 2</p>
-      <input name = "deck_2" id = "deck_2" required type="text">
+      <input name = "deck_2" id = "deck_2" required type="text" onclick="loadDecks('player_2', 'deck_2', 'decks_2')">
+      <span id="decks_2"></span>
       <br/> 
       <p>Who Won The Game?</p>
         <input type="radio" name="winner" id="player_1" value="player_1">Player 1<br>
@@ -48,7 +46,7 @@
       <br/> 
       <span id = "message"></span>
       <input type="reset" class="button"/>
-      <input type="submit" class="button" value="Submit"/>
+      <input type="submit" class="button" value="Submit" readonly/>
       <input button="button" class = "button" value = "Back" onclick = "window.location.reload()"/>
     </form>
 
