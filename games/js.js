@@ -1,9 +1,10 @@
-/*******************************
- * 
- */
+
 
 var game = [["0","0","0"], ["0","0","0"], ["0","0","0"]];
 
+/*******************************
+ * startGame will set up the gameboard
+ */
 function startGame(){
   game = [["0","0","0"], ["0","0","0"], ["0","0","0"]];
   document.getElementById("winners").innerHTML = "";
@@ -37,6 +38,9 @@ function startGame(){
   document.getElementById("board").innerHTML = table;
 }
 
+/*******************************
+ * squareClicked will update the board to allow for a choice of X or O
+ */
 function squareClicked(row, col){
 
   var rowCol = "" + row + col;
@@ -44,6 +48,9 @@ function squareClicked(row, col){
                                               <input type = "button" onclick ="clickedTwo(${row}, ${col}, 'X')" value = "X">`;
 }
 
+/*******************************
+ * clickedTwo will take the x or o choice given by the user and set the board to reflect that choice
+ */
 function clickedTwo(row, col, XorO){
   var rowCol = "" + row + col;
   if (XorO == 'X')
@@ -51,7 +58,7 @@ function clickedTwo(row, col, XorO){
     document.getElementById(rowCol).innerHTML = "X";
     game[row - 1][col] = "X";
   }
-  else
+  else 
   {
     document.getElementById(rowCol).innerHTML = "O";
     game[row - 1][col] = "O";
@@ -60,6 +67,9 @@ function clickedTwo(row, col, XorO){
   checkForWin();
 }
 
+/*******************************
+ * checkForWin will check the board for a win and display the winner to the page
+ */
 function checkForWin()
 {
   console.log(game);
